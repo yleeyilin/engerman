@@ -3,7 +3,7 @@ from telegram import Update
 import goslate
 
 # instantiating instance of telebot and translator
-curr_token = "6763142227:AAHpdG2tHPAJyflIJsaPjX46J_uk2lpogsA"
+curr_token = ""
 updater = Application.builder().token(curr_token).build()
 gs = goslate.Goslate()
 
