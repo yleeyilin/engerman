@@ -9,10 +9,11 @@ updater = Application.builder().token(curr_token).build()
 translator = Translator(service_urls=["translate.google.com"])
 gs = goslate.Goslate()
 
-# define capabilities 
+# start  
 async def start(update, context):
     await update.message.reply_text("Hallo Schatz!")
 
+# define capabilities (translate en -> de)
 async def translate(update, context):
     message = update.message.text
     # translated_msg = gs.translate(message, 'de')
