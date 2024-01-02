@@ -1,10 +1,12 @@
 from telegram.ext import CommandHandler, MessageHandler, filters, Application
 from telegram import Update
+from googletrans import Translator
 import goslate
 
 # instantiating instance of telebot and translator
 curr_token = ""
 updater = Application.builder().token(curr_token).build()
+translator = Translator(service_urls=["translate.google.com"])
 gs = goslate.Goslate()
 
 # define capabilities 
@@ -13,7 +15,8 @@ async def start(update, context):
 
 async def translate(update, context):
     message = update.message.text
-    translated_msg = gs.translate(message, 'de')
+    # translated_msg = gs.translate(message, 'de')
+    translated_msg = translator.translate(message, dest="de", src="auto").text
     await update.message.reply_text(translated_msg)
 
 # define handlers 
